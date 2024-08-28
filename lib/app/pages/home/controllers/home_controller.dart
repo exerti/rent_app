@@ -1,23 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  RxInt currentIndex = 0.obs;
+  PageController pageController = PageController(initialPage: 0);
+  late TabController tabController;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  changePage(int index) {
+    currentIndex.value = index;
+    pageController.animateToPage(index,
+        duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

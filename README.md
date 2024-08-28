@@ -15,3 +15,15 @@ A new Flutter project.
 
  ###  注册
     get create page:register on pages
+
+ ###  首页
+    get create page:home on pages
+
+```
+  首页
+  get create page:index on pages 
+  get create page:find  on pages 
+  get create page:about on pages
+  get create page:my on pages 
+
+```

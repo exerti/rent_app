@@ -1,23 +1,15 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../routes/app_pages.dart';
+
 class RegisterController extends GetxController {
-  //TODO: Implement RegisterController
+  TextEditingController usernamecontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
+  RxBool isShowPassword = false.obs;
+  FocusNode passWordFocus = FocusNode();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  login() {
+    Get.offAllNamed(Routes.LOGIN);
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

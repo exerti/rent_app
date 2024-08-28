@@ -19,19 +19,38 @@ class LoginView extends GetView<LoginController> {
           padding: const EdgeInsets.only(left: 12, right: 12),
           child: Column(
             children: [
+              const SizedBox(
+                height: 8,
+              ),
               TextField(
                 controller: controller.usernamecontroller,
                 decoration: const InputDecoration(
+                  labelText: '账号',
                   hintText: '请输入用户名',
                 ),
               ),
-              TextField(
-                controller: controller.passwordcontroller,
-                obscureText: true,
-                decoration: const InputDecoration(
-                  hintText: '请输入密码',
-                ),
+              const SizedBox(
+                height: 8,
               ),
+              Obx(() => TextField(
+                    focusNode: controller.passWordFocus,
+                    controller: controller.passwordcontroller,
+                    obscureText: !controller.isShowPassword.value,
+                    decoration: InputDecoration(
+                        labelText: '输入密码',
+                        hintText: '请输入密码',
+                        suffix: GestureDetector(
+                          onTap: () {
+                            controller.isShowPassword.value =
+                                !controller.isShowPassword.value;
+                          },
+                          child: controller.isShowPassword.value
+                              ? const Icon(Icons.visibility_off_sharp)
+                              : const Icon(Icons.visibility_sharp),
+                        )),
+                    onTapOutside: (event) =>
+                        {controller.passWordFocus.unfocus()},
+                  )),
               const SizedBox(
                 height: 20,
               ),
